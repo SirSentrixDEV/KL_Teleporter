@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="KL_TP">
+    <output-path>$USER_HOME$/Desktop/Bungee Netzwerk/TestServer - Kopie/plugins</output-path>
+    <root id="archive" name="KL_TP.jar">
+      <element id="module-output" name="KL_Teleporter" />
+    </root>
+  </artifact>
+</component>
