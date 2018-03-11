@@ -16,6 +16,7 @@ package me.sirsentrix.keinleben.teleporter;
 
 import me.sirsentrix.keinleben.teleporter.cmd.TP_CMD;
 import me.sirsentrix.keinleben.teleporter.listeners.PlayerListener;
+import me.sirsentrix.keinleben.teleporter.listeners.TP_Listener;
 import me.sirsentrix.keinleben.teleporter.managers.Config;
 import me.sirsentrix.keinleben.teleporter.utils.ItemCreator;
 import org.bukkit.Bukkit;
@@ -41,7 +42,8 @@ public class Main extends JavaPlugin {
 
         PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new PlayerListener(), this);
-        getCommand("tpreload").setExecutor(new TP_CMD());
+        pm.registerEvents(new TP_Listener(), this);
+        getCommand("tp").setExecutor(new TP_CMD());
     }
 
     @Override

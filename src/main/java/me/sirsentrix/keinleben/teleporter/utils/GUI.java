@@ -17,6 +17,7 @@ package me.sirsentrix.keinleben.teleporter.utils;
 import me.sirsentrix.keinleben.teleporter.Main;
 import me.sirsentrix.keinleben.teleporter.managers.Config;
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -27,6 +28,7 @@ public class GUI {
 
 
     public static void openTPinv(Player player) {
+        player.playSound(player.getLocation(), Sound.NOTE_PLING, 1.0F, 10F);
         int size = Config.getInstance().InventorySize;
         String title = Config.getInstance().InventoryTitle;
         if(title.contains("&")) {
