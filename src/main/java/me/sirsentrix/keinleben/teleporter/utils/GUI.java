@@ -32,8 +32,38 @@ public class GUI {
         if(title.contains("&")) {
             title.replace("&","§");
         }
+        //<!--------Placeholder--------->
+        int id = Config.getInstance().placeholderID;
+        int subid = Config.getInstance().placeholderSUBID;
+        int amount = Config.getInstance().placeholderAmount;
+        String displayname = Config.getInstance().placeholderName;
+        String lore = Config.getInstance().placeholderLore;
+        ItemStack placeholder = pl.ic.createItem(id, subid, amount, displayname, lore);
+        //<!---------------------------->
 
         Inventory inv = Bukkit.createInventory(null, size, title);
+        fillInv(inv, placeholder);
+
+
+        for(int i = 0; i < Config.getInstance().InventorySize; i++) {
+
+            boolean enabled = Boolean.valueOf(Config.getInstance().itemenabled.get(i));
+
+            if(enabled) {
+                String name = Config.getInstance().itemname.get(i);
+                String lore2 = Config.getInstance().itemlore.get(i);
+                String slot2 = Config.getInstance().itemSlot.get(i);
+                String id2 = Config.getInstance().itemID.get(i);
+                String subid2 = Config.getInstance().itemSUBID.get(i);
+                String amount2 = Config.getInstance().itemamount.get(i);
+
+                ItemStack item = pl.ic.createItem(Integer.valueOf(id2), Integer.valueOf(subid2), Integer.valueOf(amount2), name, lore2);
+                inv.setItem(Integer.valueOf(slot2), item);
+            }
+
+
+        }
+
 
 
 
